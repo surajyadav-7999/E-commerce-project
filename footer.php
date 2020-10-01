@@ -6,31 +6,47 @@
                <h4>Pages</h4>
                 
                 <ul><!-- ul Begin -->
-                    <li><a href="cart.php">Shopping Cart</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="customer/my_account.php">My Account</a></li>
-                </ul><!-- ul Finish -->
-                
+                    <li><a href="../cart.php">Shopping Cart</a></li>
+                    <li><a href="../contact.php">Contact Us</a></li>
+                    <li><a href="../shop.php">Shop</a></li>
+                    <li><a href="my_account.php">My Account</a></li>
+                </ul><!-- ul Finish --> 
                 <hr>
                 
                 <h4>User Section</h4>
                 
-                <ul><!-- ul Begin -->
-                     <?php 
+                <ul><!-- ul Begin -->               
+                       <?php 
                            
                            if(!isset($_SESSION['customer_email'])){
                                
-                               echo"<a href='checkout.php'>Login</a>";
+                               echo"<a href='../checkout.php'>Login</a>";
                                
                            }else{
                                
-                              echo"<a href='customer/my_account.php?my_orders'>My Account</a>"; 
+                              echo"<a href='my_account.php?my_orders'>My Account</a>"; 
                                
                            }
                            
                            ?>
-                    <li><a href="customer_register.php">Register</a></li>
+                    
+                    <li>
+                    
+                            <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='../checkout.php'>Login</a>";
+                               
+                           }else{
+                               
+                              echo"<a href='my_account.php?edit_account'>Edit Account</a>"; 
+                               
+                           }
+                           
+                           ?>
+                    
+                    </li>
                     <li><a href="terms.php">Terms & Conditions</a></li>
                 </ul><!-- ul Finish -->
                 
@@ -42,8 +58,7 @@
                 
                 <h4>Top Products Categories</h4>
                 
-                <ul><!-- ul Begin -->
-                   
+                <ul><!-- ul Begin -->     
                        <?php 
                     
                         $get_p_cats = "select * from product_categories";
@@ -53,13 +68,12 @@
                             $p_cat_title = $row_p_cats['p_cat_title'];
                             echo "
                             <li>
-                                <a href='shop.php?p_cat=$p_cat_id'>
+                                <a href='../shop.php?p_cat=$p_cat_id'>
                                 $p_cat_title
                                     </a>
                                 </li>
                             ";
-                            }
-                    ?>
+                            }?>
                         
                 </ul><!-- ul Finish -->
                 
@@ -75,13 +89,13 @@
                     
                     <strong>OM INFOTECH</strong>
                     <br/>Mumbai
-                    <br/>9082-205797
+                    <br/>9784-595891
                     <br/>sgy2421999@gmail.com
                     <br/><strong>Mr.Suraj</strong>
                     
                 </p><!-- p Finish -->
                 
-                <a href="contact.php">Check Our Contact Page</a>
+                <a href="../contact.php">Check Our Contact Page</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
@@ -114,22 +128,21 @@
                 <h4>Keep In Touch</h4>
                 
                 <p class="social">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-envelope"></a>
+                    <a href="../#" class="fa fa-facebook"></a>
+                    <a href="../#" class="fa fa-twitter"></a>
+                    <a href="../#" class="fa fa-instagram"></a>
+                    <a href="../#" class="fa fa-google-plus"></a>
+                    <a href="../#" class="fa fa-envelope"></a>
                 </p>
                 
             </div>
         </div><!-- row Finish -->
-
-   </div><!-- container Finish -->
+    </div><!-- container Finish -->
 </div><!-- #footer Finish -->
 <div class="container-fluid">
    <div class="col-lg-12">
     
-       <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15072.236408312481!2d72.83506047444972!3d19.192620773671482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b71d7f8e97fb%3A0x43d93ad2423eb46e!2sOm%20Infotech!5e0!3m2!1sen!2sin!4v1579417860064!5m2!1sen!2sin" width="1300" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
+       <p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30167.313404716202!2d72.8623652395508!3d19.067510699999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9d9fb13a627%3A0xa08c56c030084841!2sOM%20INFOTECH!5e0!3m2!1sen!2sin!4v1579194468207!5m2!1sen!2sin" width="1400" height="490" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
     </div>
     
 </div>

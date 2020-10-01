@@ -1,8 +1,10 @@
 <?php 
+
 session_start();
 
 include("includes/db.php");
 include("functions/functions.php");
+
 ?>
 
 <?php 
@@ -47,38 +49,11 @@ if(isset($_GET['pro_id'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OM INFOTECH</title>
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    
-    <meta name="description" content="All type lelectronic product like laptop,Mouse, Keyboard,Dell Vostro cpu,Gaming Laptop,ect.">
-    <meta name="keywords" content="laptop,Mouse, Keyboard,Dell Vostro cpu,Gaming Laptop.">
-    <meta name="author" content="onInfoTeach E-lectronic">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-<title>e-commerce</title>
-<meta name="title" content="e-commerce">
-<meta name="description" content="All type lelectronic product like laptop,Mouse, Keyboard,Dell Vostro cpu,Gaming Laptop,ect.">
-
-
-<!-- Open Graph / Facebook -->
-<!--<meta property="og:type" content="website">
-<meta property="og:url" content="https://metatags.io/">
-<meta property="og:title" content="e-commerce">
-<meta property="og:description" content="All type lelectronic product like laptop,Mouse, Keyboard,Dell Vostro cpu,Gaming Laptop,ect.">
-<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
-
-<!-- Twitter -->
-<!--<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://metatags.io/">
-<meta property="twitter:title" content="e-commerce">
-<meta property="twitter:description" content="All type lelectronic product like laptop,Mouse, Keyboard,Dell Vostro cpu,Gaming Laptop,ect.">
-<meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">-->
-    
-    <!--<meta http-equiv="refresh" content="5;">-->
-    
 </head>
 <body>
    
@@ -98,15 +73,14 @@ if(isset($_GET['pro_id'])){
                        
                    }else{
                        
-                       echo "Welcome: " .$_SESSION['customer_email']. "";
+                       echo "Welcome: " . $_SESSION['customer_email'] . "";
                        
                    }
                    
                    ?>
-                   
+               
                </a>
-               <a href="checkout.php"><?php items(); ?> Items In Your Cart | Total Price:
-                <?php total_price(); ?> </a>
+               <a href="checkout.php"> <?php items(); ?> Items In Your Cart | Total Price:  </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -115,18 +89,18 @@ if(isset($_GET['pro_id'])){
                <ul class="menu"><!-- cmenu Begin -->
                    
                    <li>
-                       <a href="customer_register.php">Register</a>
+                       <a href="../customer_register.php">Register</a>
                    </li>
                    <li>
-                       <a href="checkout.php">My Account</a>
+                       <a href="my_account.php">My Account</a>
                    </li>
                    <li>
-                       <a href="cart.php">Go To Cart</a>
+                       <a href="../cart.php">Go To Cart</a>
                    </li>
                    <li>
-                       <a href="checkout.php">
-                           
-                           <?php 
+                       <a href="../checkout.php">
+                       
+                        <?php 
                            
                            if(!isset($_SESSION['customer_email'])){
                        
@@ -138,8 +112,8 @@ if(isset($_GET['pro_id'])){
 
                                }
                            
-                           ?>
-                           
+                         ?>
+                       
                        </a>
                    </li>
                    
@@ -157,10 +131,11 @@ if(isset($_GET['pro_id'])){
            
            <div class="navbar-header"><!-- navbar-header Begin -->
                
-               <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
+               <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                   <img src="images/lo.jpg" alt="OM INFOTECH Logo" class="hidden-xs">
-                   <img src="images/logo2.jpg" alt="OM INFOTECH Logo Mobile" class="visible-xs">
+                    <img src= "..images/lo.jpg" alt="OM INFOTECH Logo" class="hidden-xs">
+                   
+                   <img src= "images/logo2.jpg" alt="OM INFOTECH Logo Mobile" class="visible-xs">
                    
                </a><!-- navbar-brand home Finish -->
                
@@ -172,7 +147,13 @@ if(isset($_GET['pro_id'])){
                    
                </button>
                
-               
+               <button class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                   
+                   <span class="sr-only">Toggle Search</span>
+                   
+                   <i class="fa fa-search"></i>
+                   
+               </button>
                
            </div><!-- navbar-header Finish -->
            
@@ -182,41 +163,27 @@ if(isset($_GET['pro_id'])){
                    
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
-                       <li class="<?php if($active=='Home') echo"active"; ?>">
-                           <a href="index.php">Home</a>
+                       <li>
+                           <a href="../index.php">Home</a>
                        </li>
-                       <li class="<?php if($active=='Shop') echo"active"; ?>">
-                           <a href="shop.php">Shop</a>
+                       <li>
+                           <a href="../shop.php">Shop</a>
                        </li>
-                       <li class="<?php if($active=='Account') echo"active"; ?>">
-                           
-                           <?php 
-                           
-                           if(!isset($_SESSION['customer_email'])){
-                               
-                               echo"<a href='checkout.php'>My Account</a>";
-                               
-                           }else{
-                               
-                              echo"<a href='customer/my_account.php?my_orders'>My Account</a>"; 
-                               
-                           }
-                           
-                           ?>
-                           
+                       <li class="active">
+                           <a href="my_account.php">My Account</a>
                        </li>
-                       <li class="<?php if($active=='Cart') echo"active"; ?>">
-                           <a href="cart.php">Shopping Cart</a>
+                       <li>
+                           <a href="../cart.php">Shopping Cart</a>
                        </li>
-                       <li class="<?php if($active=='Contact') echo"active"; ?>">
-                           <a href="contact.php">Contact Us</a>
+                       <li>
+                           <a href="../contact.php">Contact Us</a>
                        </li>
                        
                    </ul><!-- nav navbar-nav left Finish -->
                    
                </div><!-- padding-nav Finish -->
                
-               <a href="cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
+               <a href="../cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
                    
                    <i class="fa fa-shopping-cart"></i>
                    
@@ -237,8 +204,8 @@ if(isset($_GET['pro_id'])){
                </div><!-- navbar-collapse collapse right Finish -->
                
                <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->
-<!-------------------------------   search engen--------------------------------------------------->           
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->
+                   
+                <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->
                        
                        <div class="input-group"><!-- input-group Begin -->
                            
@@ -257,7 +224,7 @@ if(isset($_GET['pro_id'])){
                        </div><!-- input-group Finish -->
                        
                    </form><!-- navbar-form Finish -->
-<!-------------------------------   search engen--------------------------------------------------->
+                   
                </div><!-- collapse clearfix Finish -->
                
            </div><!-- navbar-collapse collapse Finish -->
@@ -265,10 +232,3 @@ if(isset($_GET['pro_id'])){
        </div><!-- container Finish -->
        
    </div><!-- navbar navbar-default Finish -->
-   
-  
- 
-
-
-    </body>
-</html>
