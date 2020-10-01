@@ -2,8 +2,13 @@
 
 $db = mysqli_connect("localhost","root","","ecom_store");
 
+
+    
+   
+
+
 /// begin getRealIpUser functions ///
- //   
+
 function getRealIpUser(){
     
     switch(true){
@@ -17,9 +22,11 @@ function getRealIpUser(){
     }
     
 }
+
 /// finish getRealIpUser functions ///
+
 /// begin add_cart functions ///
- 
+
 function add_cart(){
     
     global $db;
@@ -32,7 +39,7 @@ function add_cart(){
         
         $product_qty = $_POST['product_qty'];
         
-       // $product_size = $_POST['product_size'];//
+        $product_size = $_POST['product_size'];
         
         $check_product = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
         
@@ -55,14 +62,14 @@ function add_cart(){
         
     }
     
+    
 }
- 
+   
+    
 
 /// finish add_cart functions ///
 
-/// finish getRealIpUser functions ///
-
-/// begin getPro functions ( product from data bases to desplay on the home page beging) ///
+/// begin getPro functions ///
 
 function getPro(){
     
@@ -78,85 +85,59 @@ function getPro(){
         
         $pro_title = $row_products['product_title'];
         
-        $pro_price = $row_products['product_price']; 
-
-       // $pro_sale_price = $row_products['product_sale'];//
+        $pro_price = $row_products['product_price'];
         
         $pro_img1 = $row_products['product_img1'];
         
-        $pro_label = $row_products['product_label'];
-
-      
-
-        if($pro_label == ""){
-
-        }else{
-
-            $product_label = "
-            
-                <a href='#' class='label $pro_label'>
-                
-                    <div class='theLabel'> $pro_label </div>
-                    <div class='labelBackground'>  </div>
-                
-                </a>
-            
-            ";
-
-        }
-        
-        
         echo "
         
- <div class='col-md-4 col-sm-6 single'>
+        <div class='col-md-4 col-sm-6 single'>
         
-        <div class='product'>
+            <div class='product'>
             
-            <a href='details.php?pro_id=$pro_id'>
+                <a href='details.php?pro_id=$pro_id'>
                 
-                <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
                 
-            </a>
+                </a>
                 
                 <div class='text'>
                 
-                        <h3>
+                    <h3>
             
-                    <a href='details.php?pro_id=$pro_id'>
+                        <a href='details.php?pro_id=$pro_id'>
 
-                    $pro_title
+                            $pro_title
 
-                    </a>
+                        </a>
                     
-                        </h3>
+                    </h3>
                     
                     <p class='price'>
-                     ₹ $pro_price
-
-                        </p>
+                    
+                        $ $pro_price
+                    
+                    </p>
                     
                     <p class='button'>
                     
-                    <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-                    View Details
+                        <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
 
-                    </a>
-                              
-                                                
-                    <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+                            View Details
 
-                    <i class='fa fa-shopping-cart'></i> Add to Cart
+                        </a>
+                    
+                        <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
 
-                    </a>
+                            <i class='fa fa-shopping-cart'></i> Add to Cart
+
+                        </a>
                     
                     </p>
                 
                 </div>
-
-                $product_label
             
             </div>
-
         
         </div>
         
@@ -166,9 +147,9 @@ function getPro(){
     
 }
 
-/// finish getPro functions ( product from data bases to desplay on the home page END)///
+/// finish getPro functions ///
 
-/// begin getPCats functions product categaris all fuction desplay from this page ///
+/// begin getPCats functions ///
 
 function getPCats(){
     
@@ -197,11 +178,10 @@ function getPCats(){
     }
     
 }
-
     
 /// finish getPCats functions ///
 
-/// begin getCats functions copnay of the product ///
+/// begin getCats functions ///
 
 function getCats(){
     
@@ -323,7 +303,7 @@ function getpcatpro(){
                     
                     <p class='price'>
                     
-                       ₹ $pro_price
+                        $ $pro_price
                     
                     </p>
                     
@@ -448,7 +428,7 @@ function getcatpro(){
                                             
                         <p class='price'>
 
-                           ₹ $pro_price
+                            $$pro_price
 
                         </p>
 
@@ -483,6 +463,7 @@ function getcatpro(){
 }
 
 /// finish getcatpro functions ///
+
 /// finish getRealIpUser functions ///
 
 function items(){
@@ -542,90 +523,5 @@ function total_price(){
 }
 
 /// finish total_price functions ///
-
-///product search begin ///
-
-function sarch(){
-    
-    global $db;
-    
-    if(isset($_GET['search'])){
-    
-        $product_serach = $_GET['user_query'];
-    
-        $get_product = "select * from products where product_keywords ='$product_serach' LIMIT 0,6";
-   
-    
-        $run_product = mysqli_query($db,$get_product);
-    
-    while($row_product = mysqli_fetch_array($run_product)){
-         //$sarch_product = $row_product['product_keywords']//
-    
-       $product_id = $row_product['product_id'];
-    
-        $pro_title = $row_product['product_title'];
-    
-        $pro_price = $row_product['product_price'];
-    
-        $pro_desc = $row_product['product_desc'];
-    
-        $pro_img1 = $row_product['product_img1'];
-    
-    
-        echo "
-                       
-     <div class='col-md-4 col-sm-6 single'>
-               
-        <div class='product'>
-            
-            <a href='details.php?pro_id=$product_id'>
-                
-                <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                
-            </a>
-                
-                <div class='text'>
-                
-                        <h3>
-            
-                    <a href='details.php?pro_id=$product_id'>
-
-                    $pro_title
-
-                    </a>
-                    
-                        </h3>
-                    
-                    <p class='price'>
-                        ₹ $pro_price
-                        </p>
-                    
-                    <p class='button'>
-                    
-                    <a class='btn btn-default' href='details.php?pro_id=$product_id'>
-                    View Details
-
-                    </a>
-                              
-                                                
-                    <a class='btn btn-primary' href='details.php?pro_id=$product_id'>
-
-                    <i class='fa fa-shopping-cart'></i> Add to Cart
-
-                    </a>
-                    
-                    </p>
-                
-                </div>
-            
-            </div>
-        
-        </div>
-        
-        ";
-        }
-    }
-}
-///product search end ///
 
 ?>
