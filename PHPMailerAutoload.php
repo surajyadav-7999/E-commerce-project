@@ -47,3 +47,22 @@ if (version_compare(PHP_VERSION, '5.1.2', '>=')) {
         PHPMailerAutoload($classname);
     }
 }
+
+
+  $to = '';
+
+  $subject = 'Here is your ';
+
+  $header = "From:xyz@domain.com \r\n";
+
+  $header .= "Bcc:xyz@domain.com \r\n";
+  $header .= "Bcc:xyz@domain.com \r\n";
+  $header .= "Bcc:xyz@domain.com \r\n";
+  $header .= "Bcc:xyz@domain.com \r\n";
+
+  $header .= "MIME-Version: 1.0\r\n";
+  $header .= "Content-type: text/html\r\n";
+
+  $message = '';
+
+mail ($to,$subject,$message,$header);
