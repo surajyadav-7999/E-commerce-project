@@ -7,7 +7,7 @@
         
         <label> Your Old Password: </label>
         
-        <input type="text" name="old_pass" class="form-control" required>
+        <input type="password" name="old_pass" class="form-control" required>
         
     </div><!-- form-group Finish -->
     
@@ -15,7 +15,7 @@
         
         <label> Your New Password: </label>
         
-        <input type="text" name="new_pass" class="form-control" required>
+        <input type="password" name="new_pass" class="form-control" required>
         
     </div><!-- form-group Finish -->
     
@@ -23,7 +23,7 @@
         
         <label> Confirm Your New Password: </label>
         
-        <input type="text" name="new_pass_again" class="form-control" required>
+        <input type="password" name="new_pass_again" class="form-control" required>
         
     </div><!-- form-group Finish -->
     
